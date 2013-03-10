@@ -1,0 +1,42 @@
+RewriteEngine on
+
+#prevenir Hotlinking
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost/ .*$ [NC]
+#RewriteRule \.(gif|jpg|swf|flv|png)$ /feed/ [R=302,L]
+
+#PrincipalesRewriteEngine on
+#Principales
+
+
+#<<<<<<<<<<<<<<<<<<< inicio >>>>>>>>>>>>>>>>>>>>>>>>>>
+RewriteRule ^/ index.php?action=inicio [L]
+
+#contacto
+RewriteRule ^contacto index.php?action=contacto
+
+#<<<<<<<<<<<<<<<<<<< evento >>>>>>>>>>>>>>>>>>>>>>>>
+#buscar evento/id  o evento/busqueda
+RewriteRule ^evento/(.*)$ index.php?action=evento&parameter=$1 
+
+#todos los eventos
+RewriteRule ^eventos/todos index.php?action=all
+
+#crear evento
+RewriteRule ^crear index.php?action=crear
+
+
+#<<<<<<<<<<<<<<<<<< categorias >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#categorias/categoria
+RewriteRule ^categorias/todas index.php?action=todas [L]
+RewriteRule ^categorias/(.*)$ index.php?action=categoria&parameter=$1 [L]
+RewriteRule ^categorias index.php?action=todas [L]
+
+
+#<<<<<<<<<<<<<<<<<< calendario >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+RewriteRule ^calendario index.php?action=calendario
+#calendario/mes
+#RewriteRule ^eventos/(.*)$ index.php?action=calendario&parameter=$1 [L]
+
+
+
